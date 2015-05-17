@@ -35,6 +35,8 @@
 		C9F6E9611B0515DA008D9911 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F6E95E1B0515DA008D9911 /* FBSDKLoginKit.framework */; };
 		C9F6E9621B0515DA008D9911 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F6E95F1B0515DA008D9911 /* FBSDKShareKit.framework */; };
 		C9F6E9651B057CC4008D9911 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F6E9641B057CC4008D9911 /* LoginViewController.swift */; };
+		C9F6E9681B07037F008D9911 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F6E9671B07037F008D9911 /* User.swift */; };
+		C9F6E96A1B07064C008D9911 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F6E9691B07064C008D9911 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		C9F6E95F1B0515DA008D9911 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		C9F6E9631B057212008D9911 /* Brindging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Brindging-Header.h"; sourceTree = "<group>"; };
 		C9F6E9641B057CC4008D9911 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C9F6E9671B07037F008D9911 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C9F6E9691B07064C008D9911 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				C9F6E9151B02BA2D008D9911 /* AppDelegate.swift */,
+				C9F6E9661B070371008D9911 /* Data */,
 				C9F6E9381B02BBBF008D9911 /* Views */,
 				C9F6E93D1B0451B2008D9911 /* ViewControllers */,
 				C9F6E91C1B02BA2D008D9911 /* Main.storyboard */,
@@ -193,6 +198,7 @@
 				C9F6E91A1B02BA2D008D9911 /* ViewController.swift */,
 				C9F6E93E1B0451F4008D9911 /* CardsViewController.swift */,
 				C9F6E9641B057CC4008D9911 /* LoginViewController.swift */,
+				C9F6E9691B07064C008D9911 /* ProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -221,6 +227,14 @@
 			name = Frameworks;
 			path = BoomDate.xcodeproj;
 			sourceTree = SOURCE_ROOT;
+		};
+		C9F6E9661B070371008D9911 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C9F6E9671B07037F008D9911 /* User.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -326,7 +340,9 @@
 				C9F6E91B1B02BA2D008D9911 /* ViewController.swift in Sources */,
 				C9F6E9191B02BA2D008D9911 /* BoomDate.xcdatamodeld in Sources */,
 				C9F6E93F1B0451F4008D9911 /* CardsViewController.swift in Sources */,
+				C9F6E9681B07037F008D9911 /* User.swift in Sources */,
 				C9F6E93A1B02BBEB008D9911 /* CardView.swift in Sources */,
+				C9F6E96A1B07064C008D9911 /* ProfileViewController.swift in Sources */,
 				C9F6E93C1B02CD81008D9911 /* SwipeView.swift in Sources */,
 				C9F6E9161B02BA2D008D9911 /* AppDelegate.swift in Sources */,
 			);

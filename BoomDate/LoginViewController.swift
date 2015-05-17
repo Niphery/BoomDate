@@ -61,7 +61,12 @@ class LoginViewController: UIViewController {
                 }
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
+                return
             }
+            
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CardsNavController") as? UIViewController
+            self.presentViewController(vc!, animated: true, completion: nil)
+            
         })
     }
     
@@ -94,17 +99,31 @@ class LoginViewController: UIViewController {
                 user!["email"] = r["email"]
                 //if r["verified"] as! Int == 1 { user!["verified"] = true } else { user!["verified"] = false }
                 user!["verified"] = r["verified"] //?
-                user!["picture"] = ((r["picture"] as! NSDictionary)["data"] as! NSDictionary) ["url"]
+                
                 var dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 user!["birthday"] = dateFormatter.dateFromString(r["birthday"] as! String)
-                user!.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if success {
-                        println("Saving Data to Parse")
-                    } else {
-                        println("Error Saving Data to Parse")
-                    }
+                
+                let pictureURL = ((r["picture"] as! NSDictionary)["data"] as! NSDictionary) ["url"] as! String
+                let url = NSURL(string: pictureURL)
+//                user!["picture"] = ((r["picture"] as! NSDictionary)["data"] as! NSDictionary) ["url"]
+                let request = NSURLRequest(URL: url!)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) -> Void in
+                    let imageFile = PFFile(name: "avatar.jpg", data: data)
+                    user!["picture"] = imageFile
+                    
+                    user!.saveInBackgroundWithBlock({ (success, error) -> Void in
+                        if success {
+                            println("Saving Data to Parse")
+                        } else {
+                            println("Error Saving Data to Parse")
+                        }
+                    })
+
                 })
+                
+                
+                
 
                 
             }

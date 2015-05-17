@@ -43,6 +43,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var initialViewController: UIViewController
+        
+        if currentUser() != nil {
+            
+            initialViewController = pageController
+            
+//            initialViewController = storyBoard.instantiateViewControllerWithIdentifier("PageController") as! UIViewController // CardsNavController
+        } else {
+            initialViewController = storyBoard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
+        
+        
       //  return true
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
